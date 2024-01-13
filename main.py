@@ -28,8 +28,6 @@ prefixed_commands.setup(bot, default_prefix='+')
 # Store the message object
 message = None
 
-#Store Genereal Information from Variables.json
-
 
 
 @listen()

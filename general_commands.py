@@ -69,7 +69,7 @@ class general_commands(Extension):
             return round(total_ping / count)
 
         average_ping = await get_average_ping()
-        await response.edit(content=f"🏓 Average Pong: {average_ping} ms")
+        await response.edit(content=f"🏓 Average Ping: {average_ping} ms")
 
     @slash_command(name="whois", description="Get User Information")
     @slash_option(name="member", description="User to get Information for", opt_type=OptionType.USER, required=True)
