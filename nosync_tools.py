@@ -18,6 +18,7 @@ def logthis(severity: Literal['info', 'debug', 'warning', 'error', 'critical'], 
         logging.critical(message)
     else:
         raise Exception
+        # Logging is not working.
 '''
 
 def open_json(file: str):
