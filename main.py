@@ -11,11 +11,20 @@ from interactions import slash_command, SlashContext, slash_option, OptionType, 
 
 
 
-#opens General Variables.json in a dict file to access important information
+#opens General Variables.json in as dict to access important information
 bot_info: dict = ns.open_json("Variables.json")
 
+#opens Token file to retrieve Token Information
+def get_token():
+    file = open("Token.txt", "r")
+    token = file.readline()
+    file.close()
+    return token
+
+TOKEN = str(get_token())
+
 #innitializes the bot
-bot = interactions.Client(token=bot_info["general_variables"]["TOKEN"], intents = Intents.DEFAULT | Intents.MESSAGE_CONTENT) #implements the bot
+bot = interactions.Client(token=TOKEN, intents = Intents.DEFAULT | Intents.MESSAGE_CONTENT) #implements the bot
 
 #innitializing required Variables from Variables.json
 
