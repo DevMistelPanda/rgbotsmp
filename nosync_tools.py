@@ -2,9 +2,9 @@ import logging
 from typing import Literal
 import json
 
-#logging.basicConfig(level=logging.INFO, filename="bot.log", filemode="a", format="[%(asctime)s] %(levelname)s : %(message)s")
+logging.basicConfig(level=logging.INFO, filename="bot.log", filemode="a", format="[%(asctime)s] %(levelname)s : %(message)s")
 
-'''
+
 def logthis(severity: Literal['info', 'debug', 'warning', 'error', 'critical'], message: str):
     if severity == "info":
         logging.info(message)
@@ -19,7 +19,7 @@ def logthis(severity: Literal['info', 'debug', 'warning', 'error', 'critical'], 
     else:
         raise Exception
         # Logging is not working.
-'''
+
 
 def open_json(file: str):
     json_file = open(file)
