@@ -72,7 +72,7 @@ class general_commands(Extension):
         await response.edit(content=f"🏓 Average Ping: {average_ping} ms")
 
     @slash_command(name="whois", description="Get User Information")
-    @slash_option(name="member", description="User to get Information for", opt_type=OptionType.USER, required=True)
+    @slash_option(name="member", description="User to get Information for", opt_type=OptionType.USER)
     async def whois(self, ctx:SlashContext, member=None):
         member = member or ctx.author
         def get_user_roles(User):
