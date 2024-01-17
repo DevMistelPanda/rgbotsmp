@@ -11,6 +11,8 @@ from interactions import slash_command, SlashContext, slash_option
 from interactions import OptionType
 from interactions import Permissions
 from interactions import Activity, ActivityType, Color
+
+import main
 import nosync_tools as ns
 from interactions import Embed
 
@@ -24,15 +26,16 @@ class general_commands(Extension):
 
     @slash_command(name='serverstatus', description='Retrieve website information')
     async def website_info(self, ctx):
-        url = "https://h2976799.stratoserver.net/minecraft/index.php"
+        url = main.URL
         response = requests.get(url, verify=False)
         # Filter and ignore the InsecureRequestWarning
         warnings.filterwarnings("ignore", category=requests.packages.urllib3.exceptions.InsecureRequestWarning)
         if response.ok:
             html_content = response.text
-            modified_content = html_content.replace("<br/>", "\n")
+            server1, server2 = ns.parse_server_info(html_content)
+            embed = ns.create_embed(server1, server2)
 
-            await ctx.send(modified_content)
+            await ctx.send(embed=embed)
             #await main.send_website_info()
         else:
             await ctx.send(f'Failed to retrieve website information. Status code: {response.status_code}')
