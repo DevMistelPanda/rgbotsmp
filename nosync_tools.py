@@ -69,9 +69,9 @@ def create_embed(server_info1, server_info2):
     if "Statusmessage" in  server_info1.keys() or server_info1.keys(): #check for offline Server
         #Set Statusmessage to something printable
         if "Statusmessage" in server_info1.keys():
-            server_info1 = "Server Offline ❌"
+            server_info1 = "Server Offline"
         else:
-            server_info2 = "Server Offline ❌"
+            server_info2 = "Server Offline"
 
 
     info_embed.footer = "RGB- Networks"
@@ -79,24 +79,24 @@ def create_embed(server_info1, server_info2):
     info_embed.description = "Information about RGB Services"
     info_embed.timestamp = datetime.datetime.now()
     try:
-        info_embed.add_field("Server 1 ✅", server_info1["MOTD"], inline=False)
+        info_embed.add_field("Server 1   ✅", server_info1["MOTD"], inline=False)
         info_embed.add_field("Version", server_info1["Version"], inline=True)
         info_embed.add_field("Online Players", server_info1["Players"], inline=True)
         info_embed.add_field("IP- Address", server_info1["IP-Address"], inline=True)
 
     except:
-        info_embed.add_field("Server 1 ⚠️", server_info1, inline=False)
+        info_embed.add_field("Server 1   ⚠️", server_info1, inline=False)
 
     info_embed.add_field(" ", " ", inline=False) #Create Blank space between server Informations
 
     try:
-        info_embed.add_field("Server 2 ✅", server_info2["MOTD"], inline=False)
+        info_embed.add_field("Server 2   ✅", server_info2["MOTD"], inline=False)
         info_embed.add_field("Version", server_info2["Version"], inline=True)
         info_embed.add_field("Online Players", server_info2["Players"], inline=True)
         info_embed.add_field("IP- Address", server_info2["IP-Address"], inline=True)
 
     except:
-        info_embed.add_field("Server 2 ⚠️", server_info2, inline=False)
+        info_embed.add_field("Server 2   ⚠️", server_info2, inline=False)
 
     return info_embed
 
