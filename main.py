@@ -63,7 +63,6 @@ async def send_website_info(channel):
                 html_content = await response.text()
                 server1, server2 = ns.parse_server_info(html_content)
                 print()
-                modified_content = html_content.replace("<br/>", "\n")
                 embed = ns.create_embed(server1, server2)
                 if message is None:
                     #cleans the channel before sending the new message
@@ -77,8 +76,8 @@ async def send_website_info(channel):
             else:
                 await channel.send(f'Failed to retrieve website information. Status code: {response.status}')
 
-    # Schedule the next update after 30 seconds
-    await asyncio.sleep(30)
+    # Schedule the next update after 180 seconds
+    await asyncio.sleep(180)
     await send_website_info(channel)
 
 @slash_command(name="reload_server_info", description="Relaods SMP Information on WeLikeMoreRGBEEE")
