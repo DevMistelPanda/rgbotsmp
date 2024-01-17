@@ -62,15 +62,18 @@ async def send_website_info(channel):
             if response.status == 200:
                 html_content = await response.text()
                 server1, server2 = ns.parse_server_info(html_content)
+                print()
                 modified_content = html_content.replace("<br/>", "\n")
+                embed = ns.create_embed(server1, server2)
                 if message is None:
                     #cleans the channel before sending the new message
                     await bot.get_channel(CHANNEL_ID).purge(deletion_limit=50)
+
                     # If the message is not set, send a new message
-                    message = await channel.send(modified_content)
+                    message = await channel.send(embed=embed)
                 else:
                     # If the message is already set, edit it with the new content
-                    await message.edit(content=modified_content)
+                    await message.edit(embed=embed)
             else:
                 await channel.send(f'Failed to retrieve website information. Status code: {response.status}')
 
