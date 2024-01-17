@@ -12,7 +12,7 @@ from interactions import OptionType
 from interactions import Permissions
 from interactions import Activity, ActivityType, Color
 
-import main
+
 import nosync_tools as ns
 from interactions import Embed
 
@@ -22,14 +22,17 @@ class general_commands(Extension):
 
 
 
+
 #######################################################################################################################
 
     @slash_command(name='serverstatus', description='Retrieve website information')
     async def website_info(self, ctx):
-        url = main.URL
-        response = requests.get(url, verify=False)
+        bot_info: dict = ns.open_json("Variables.json")
+        url = bot_info["smp_infos"]["server_info_url"]
         # Filter and ignore the InsecureRequestWarning
         warnings.filterwarnings("ignore", category=requests.packages.urllib3.exceptions.InsecureRequestWarning)
+        response = requests.get(url, verify=False)
+
         if response.ok:
             html_content = response.text
             server1, server2 = ns.parse_server_info(html_content)

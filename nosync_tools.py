@@ -4,6 +4,9 @@ import json
 from interactions import Embed, Color
 import datetime
 
+
+
+
 logging.basicConfig(level=logging.INFO, filename="bot.log", filemode="a", format="[%(asctime)s] %(levelname)s : %(message)s")
 
 
