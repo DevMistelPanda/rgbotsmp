@@ -87,8 +87,6 @@ def create_embed(server_info1:dict, server_info2:dict):
     except:
         info_embed.add_field("Server 1   ⚠️", server_info1, inline=False)
 
-    info_embed.add_field(" ", " ", inline=False) #Create Blank space between server Informations
-
     try:
         info_embed.add_field("Server 2   ✅", server_info2["MOTD"], inline=False)
         info_embed.add_field("Version", server_info2["Version"], inline=True)
