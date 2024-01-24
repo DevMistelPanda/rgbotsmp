@@ -76,7 +76,7 @@ def create_embed(server_info1, server_info2):
 
     info_embed.footer = "RGB- Networks"
     info_embed.title = "Server Information"
-    info_embed.description = "Information about RGB Services"
+    info_embed.description = "For more information use '@MinecraftServerBot info'"
     info_embed.timestamp = datetime.datetime.now()
     try:
         info_embed.add_field("Server 1   ✅", server_info1["MOTD"], inline=False)
