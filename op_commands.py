@@ -1,18 +1,11 @@
-import datetime
 
-import interactions
 from interactions.models.internal.extension import Extension
-import requests
-import asyncio
-import warnings
-import interactions
+
 from interactions import slash_command, SlashContext, slash_option
-from interactions import OptionType
-from interactions import Permissions
+
 from interactions import is_owner
 from interactions import Activity, ActivityType, Color
 import nosync_tools as ns
-from interactions import Embed
 
 class op_commands(Extension):
     @slash_command(name="bot_reload", description="reloads Bot instance", scopes=[])
