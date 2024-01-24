@@ -1,7 +1,7 @@
 import logging
 from typing import Literal
 import json
-from interactions import Embed, Color
+from interactions import Embed
 import datetime
 
 
@@ -64,10 +64,10 @@ def parse_server_info(string: str):
 
     return server1_dict, server2_dict
 
-def create_embed(server_info1, server_info2):
+def create_embed(server_info1:dict, server_info2:dict):
     info_embed = Embed() #implement Embed for both Servers
     if "Statusmessage" in  server_info1.keys() or server_info1.keys(): #check for offline Server
-        #Set Statusmessage to something printable
+        #Set Statusmessage to something understandable
         if "Statusmessage" in server_info1.keys():
             server_info1 = "Server Offline"
         else:
@@ -86,8 +86,6 @@ def create_embed(server_info1, server_info2):
 
     except:
         info_embed.add_field("Server 1   ⚠️", server_info1, inline=False)
-
-    info_embed.add_field(" ", " ", inline=False) #Create Blank space between server Informations
 
     try:
         info_embed.add_field("Server 2   ✅", server_info2["MOTD"], inline=False)

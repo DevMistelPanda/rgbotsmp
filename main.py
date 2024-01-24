@@ -34,7 +34,7 @@ URL = bot_info["smp_infos"]["server_info_url"] #Website to gain smp information
 #sets default prefix
 prefixed_commands.setup(bot, default_prefix='+')
 
-# Store the message object
+# Stores the message object (for preferences
 message = None
 
 
@@ -54,7 +54,7 @@ async def on_ready():
 
 
 async def send_website_info(channel):
-    global message  # Use the global message variable
+    global message  # Use the global message variable to guarantee later access to the message Object
 
 
     async with aiohttp.ClientSession() as session:
@@ -65,18 +65,18 @@ async def send_website_info(channel):
                 print()
                 embed = ns.create_embed(server1, server2)
                 if message is None:
-                    #cleans the channel before sending the new message
+                    #cleans the channel before sending the new message to make sure to stay on top
                     await bot.get_channel(CHANNEL_ID).purge(deletion_limit=50)
 
-                    # If the message is not set, send a new message
+                    # If the message is not set, send new & updated Embed
                     message = await channel.send(embed=embed)
                 else:
-                    # If the message is already set, edit it with the new content
+                    # If the message is already set, send new & updated Embed
                     await message.edit(embed=embed)
             else:
                 await channel.send(f'Failed to retrieve website information. Status code: {response.status}')
 
-    # Schedule the next update after 180 seconds
+    # Schedule the next update after 3mminutes
     await asyncio.sleep(180)
     await send_website_info(channel)
 

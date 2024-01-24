@@ -1,5 +1,5 @@
 from interactions.models.internal.extension import Extension
-from interactions import slash_command, SlashContext, slash_option, OptionType, Modal, ShortText, ParagraphText, ModalContext, Color
+from interactions import slash_command, SlashContext, Modal, ShortText, ParagraphText, ModalContext, Color
 import nosync_tools as ns
 import datetime
 
