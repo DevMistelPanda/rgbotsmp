@@ -1,7 +1,7 @@
 import logging
 from typing import Literal
 import json
-from interactions import Embed, Color
+from interactions import Embed
 import datetime
 
 
