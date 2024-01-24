@@ -74,7 +74,7 @@ def create_embed(server_info1, server_info2):
             server_info2 = "Server Offline"
 
 
-    info_embed.footer = "RGB- Networks"
+    info_embed.footer = "Powered by Mistel_Panda"
     info_embed.title = "Server Information"
     info_embed.description = "For more information use '@MinecraftServerBot info'"
     info_embed.timestamp = datetime.datetime.now()
