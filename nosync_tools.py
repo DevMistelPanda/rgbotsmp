@@ -64,7 +64,7 @@ def parse_server_info(string: str):
 
     return server1_dict, server2_dict
 
-def create_embed(server_info1, server_info2):
+def create_embed(server_info1:dict, server_info2:dict):
     info_embed = Embed() #implement Embed for both Servers
     if "Statusmessage" in  server_info1.keys() or server_info1.keys(): #check for offline Server
         #Set Statusmessage to something printable
